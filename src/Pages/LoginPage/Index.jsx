@@ -74,71 +74,73 @@ class Index extends Component {
     const { emailError, passwordError } = this.state.errors;
     const { isLoading, isSuccess } = this.state;
     return (
-      <FormGroup
-        sx={{
-          maxWidth: "sm",
-          mx: "auto",
-          mt: "30px",
-          boxShadow: 3,
-          borderRadius: 3,
-          p: "30px",
-          pb: "50px",
-        }}
-      >
-        <h2 style={{ textAlign: "center", color: "#757ce8" }}>Login</h2>
-        <Input
-          label="Email"
-          name="email"
-          type="text"
-          errorMessage={emailError}
-          onChange={this.handleInputChange}
-          autoFocus={true}
-        />
-        <Input
-          label="Password"
-          name="password"
-          type="password"
-          errorMessage={passwordError}
-          onChange={this.handleInputChange}
-        />
-        <Box sx={{ display: "flex" }}>
-          {isSuccess ? (
-            <DoneIcon
-              color="success"
-              fontSize="large"
-              sx={{ mx: "auto", mt: "16px" }}
-            />
-          ) : (
-            <>
-              {isLoading ? (
-                <CircularProgress sx={{ mx: "auto", mt: "16px" }} />
-              ) : (
-                <Button
-                  type="submit"
-                  variant="contained"
-                  fullWidth
-                  sx={{ mt: "20px" }}
-                  onClick={this.handleSubmit}
-                >
-                  Sign In
-                </Button>
-              )}
-            </>
-          )}
-        </Box>
-        <Snackbar
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
+      <form onSubmit={this.handleSubmit}>
+        <FormGroup
+          sx={{
+            maxWidth: "sm",
+            mx: "auto",
+            mt: "30px",
+            boxShadow: 3,
+            borderRadius: 3,
+            p: "30px",
+            pb: "50px",
           }}
-          open={isSuccess}
-          autoHideDuration={2000}
         >
-          <Alert severity="success" sx={{ width: "100%" }}>
-            Credentials are Correct!
-          </Alert>
-        </Snackbar>
-      </FormGroup>
+          <h2 style={{ textAlign: "center", color: "#757ce8" }}>Login</h2>
+          <Input
+            label="Email"
+            name="email"
+            type="text"
+            errorMessage={emailError}
+            onChange={this.handleInputChange}
+            autoFocus={true}
+          />
+          <Input
+            label="Password"
+            name="password"
+            type="password"
+            errorMessage={passwordError}
+            onChange={this.handleInputChange}
+          />
+          <Box sx={{ display: "flex" }}>
+            {isSuccess ? (
+              <DoneIcon
+                color="success"
+                fontSize="large"
+                sx={{ mx: "auto", mt: "16px" }}
+              />
+            ) : (
+              <>
+                {isLoading ? (
+                  <CircularProgress sx={{ mx: "auto", mt: "16px" }} />
+                ) : (
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    fullWidth
+                    sx={{ mt: "20px" }}
+                    onClick={this.handleSubmit}
+                  >
+                    Sign In
+                  </Button>
+                )}
+              </>
+            )}
+          </Box>
+          <Snackbar
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={isSuccess}
+            autoHideDuration={2000}
+          >
+            <Alert severity="success" sx={{ width: "100%" }}>
+              Credentials are Correct!
+            </Alert>
+          </Snackbar>
+        </FormGroup>
+      </form>
     );
   }
 }

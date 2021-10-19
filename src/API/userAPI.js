@@ -7,6 +7,8 @@ export const handleGetUser = (credentials) => {
         success: { status: 200, message: "You are authenticated", data: existingUser }
     };
 
+    credentials.email = credentials.email.toLowerCase();
+
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             for (let prop in credentials) {

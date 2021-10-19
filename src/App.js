@@ -26,7 +26,7 @@ export default class App extends Component {
 
     return (
       <Router>
-        <Container>
+        <div>
           <Switch>
 
             <Route path="/login">
@@ -50,7 +50,7 @@ export default class App extends Component {
             </Route>
 
           </Switch>
-        </Container>
+        </div>
       </Router>
     )
   }
