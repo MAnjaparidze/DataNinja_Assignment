@@ -1,4 +1,4 @@
-export const handleGetUser = (credentials) => {
+export const handleAuthUser = (credentials) => {
     let existingUser = JSON.parse(localStorage.getItem("user"));
 
     const responses = {

@@ -1,13 +1,7 @@
-import { AUTH_USER, BASE_USER } from "../Actions/actionTypes";
+import { AUTH_USER, GET_USER } from "../Actions/actionTypes";
 
 const initState = {
-    user: {
-        id: null,
-        name: "",
-        email: "",
-        password: "",
-        isAuthed: false
-    }
+    user: null
 }
 
 export default function reducer(state = initState, action) {
@@ -17,7 +11,7 @@ export default function reducer(state = initState, action) {
                 ...state,
                 user: action.payload
             }
-        case BASE_USER:
+        case GET_USER:
             return {
                 ...state,
                 user: action.payload

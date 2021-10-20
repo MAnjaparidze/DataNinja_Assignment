@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
-import { handleGetUser } from "../../API/userAPI";
+import { handleAuthUser } from "../../API/userAPI";
 
 class Index extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class Index extends Component {
   async handleSubmit() {
     try {
       this.setState({ isLoading: true });
-      let response = await handleGetUser(this.state.user);
+      let response = await handleAuthUser(this.state.user);
 
       if (response.status === 200) {
         this.setState({ isLoading: false });
@@ -90,7 +90,7 @@ class Index extends Component {
           <Input
             label="Email"
             name="email"
-            type="text"
+            type="email"
             errorMessage={emailError}
             onChange={this.handleInputChange}
             autoFocus={true}

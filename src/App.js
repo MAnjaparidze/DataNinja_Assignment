@@ -11,14 +11,14 @@ import UserTestsPage from './Containers/UserTestsPageContainer';
 // #endregion
 
 // #region Methods
-import { handleSetUser } from './Helpers/setUser';
+import { handleSetData } from './Helpers/setData';
 import { handleCheckAuth } from './Helpers/checkAuth';
 // #endregion
 
 export default class App extends Component {
 
   componentDidMount() {
-    handleSetUser();
+    handleSetData();
   };
 
   render() {
